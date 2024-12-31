@@ -13,7 +13,7 @@ def addition():
 @app.route("/factorial")
 def factorial():
     num=request.args.get('num')
-    return jsonify({'result': math.factorial(num)})
+    return jsonify({ 'result': math.factorial( int(num) ) })
 
 @app.route("/circlearea")
 def circlearea():
@@ -25,9 +25,9 @@ def palindrome():
     text=request.args.get('text')
     result = text == text[::-1]
     if result:
-        return jsonify({'the text is a palindrome'})
+        return jsonify({"result":'the text is a palindrome'})
     else:
-        return jsonify({'the text is not a palindrome'})
+        return jsonify({"result":'the text is not a palindrome'})
     
 if __name__ == "__main__":
     app.run(debug=True)
